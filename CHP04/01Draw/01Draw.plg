@@ -6,43 +6,30 @@
 --------------------Configuration: 01Draw - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating command line "rc.exe /l 0x804 /fo"Debug/01Draw.res" /d "_DEBUG" /d "_AFXDLL" "E:\Projects\VCppShenRuXiangJie\CHP04\01Draw\01Draw.rc"" 
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPC15D.tmp" with contents
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPD6D.tmp" with contents
 [
-/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/01Draw.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/01Draw.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
 "E:\Projects\VCppShenRuXiangJie\CHP04\01Draw\01Draw.cpp"
 "E:\Projects\VCppShenRuXiangJie\CHP04\01Draw\MainFrm.cpp"
-"E:\Projects\VCppShenRuXiangJie\CHP04\01Draw\01DrawDoc.cpp"
-"E:\Projects\VCppShenRuXiangJie\CHP04\01Draw\01DrawView.cpp"
 ]
-Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPC15D.tmp" 
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPC16D.tmp" with contents
-[
-/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/01Draw.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
-"E:\Projects\VCppShenRuXiangJie\CHP04\01Draw\StdAfx.cpp"
-]
-Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPC16D.tmp" 
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPC16E.tmp" with contents
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPD6D.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPD6E.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/01Draw.pdb" /debug /machine:I386 /out:"Debug/01Draw.exe" /pdbtype:sept 
 .\Debug\01Draw.obj
-.\Debug\StdAfx.obj
-.\Debug\MainFrm.obj
 .\Debug\01DrawDoc.obj
 .\Debug\01DrawView.obj
+.\Debug\MainFrm.obj
+.\Debug\StdAfx.obj
 .\Debug\01Draw.res
 ]
-Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPC16E.tmp"
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPD6E.tmp"
 <h3>Output Window</h3>
-Compiling resources...
 Compiling...
-StdAfx.cpp
-Compiling...
-01Draw.cpp
 MainFrm.cpp
-01DrawDoc.cpp
-01DrawView.cpp
 Generating Code...
+Skipping... (no relevant changes detected)
+01Draw.cpp
 Linking...
 
 
