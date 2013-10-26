@@ -73,8 +73,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	EnableDocking(CBRS_ALIGN_ANY);
 	DockControlBar(&m_wndToolBar);
 
-    CButton btn;
-    btn.Create("°´Å¥", WS_CHILD | BS_DEFPUSHBUTTON, CRect(0, 0, 100, 100), this, 123);
+    m_btn.Create("°´Å¥", WS_CHILD | BS_DEFPUSHBUTTON, CRect(0, 0, 100, 100), this, 123);
+    m_btn.ShowWindow(SW_SHOWNORMAL);
 
 	return 0;
 }
