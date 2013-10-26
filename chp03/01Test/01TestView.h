@@ -48,10 +48,11 @@ protected:
 // Generated message map functions
 protected:
 	//{{AFX_MSG(CMy01TestView)
-		// NOTE - the ClassWizard will add and remove member functions here.
-		//    DO NOT EDIT what you see in these blocks of generated code !
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+private:
+	CButton m_btn;
 };
 
 #ifndef _DEBUG  // debug version in 01TestView.cpp

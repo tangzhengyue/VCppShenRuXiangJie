@@ -20,8 +20,7 @@ IMPLEMENT_DYNCREATE(CMy01TestView, CView)
 
 BEGIN_MESSAGE_MAP(CMy01TestView, CView)
 	//{{AFX_MSG_MAP(CMy01TestView)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
+	ON_WM_CREATE()
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -102,3 +101,15 @@ CMy01TestDoc* CMy01TestView::GetDocument() // non-debug version is inline
 
 /////////////////////////////////////////////////////////////////////////////
 // CMy01TestView message handlers
+
+int CMy01TestView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+{
+	if (CView::OnCreate(lpCreateStruct) == -1)
+		return -1;
+	
+	// TODO: Add your specialized creation code here
+    m_btn.Create("°´Å¥", WS_CHILD | BS_DEFPUSHBUTTON, CRect(0, 0, 100, 100), this, 123);
+    m_btn.ShowWindow(SW_SHOWNORMAL);
+	
+	return 0;
+}
