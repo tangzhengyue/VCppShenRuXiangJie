@@ -108,7 +108,7 @@ int CMy01TestView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 	
 	// TODO: Add your specialized creation code here
-    m_btn.Create("°´Å¥", WS_CHILD | BS_DEFPUSHBUTTON, CRect(0, 0, 100, 100), this, 123);
+    m_btn.Create("°´Å¥", WS_CHILD | BS_DEFPUSHBUTTON, CRect(0, 0, 100, 100), GetParent(), 123);
     m_btn.ShowWindow(SW_SHOWNORMAL);
 	
 	return 0;
