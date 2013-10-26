@@ -20,8 +20,7 @@ IMPLEMENT_DYNCREATE(CMy01DrawView, CView)
 
 BEGIN_MESSAGE_MAP(CMy01DrawView, CView)
 	//{{AFX_MSG_MAP(CMy01DrawView)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
+	ON_WM_LBUTTONDOWN()
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -102,3 +101,11 @@ CMy01DrawDoc* CMy01DrawView::GetDocument() // non-debug version is inline
 
 /////////////////////////////////////////////////////////////////////////////
 // CMy01DrawView message handlers
+
+void CMy01DrawView::OnLButtonDown(UINT nFlags, CPoint point) 
+{
+	// TODO: Add your message handler code here and/or call default
+    MessageBox("View Clicked!");
+	
+	CView::OnLButtonDown(nFlags, point);
+}

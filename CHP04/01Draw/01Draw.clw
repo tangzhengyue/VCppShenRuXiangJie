@@ -36,6 +36,8 @@ Type=0
 HeaderFile=01DrawView.h
 ImplementationFile=01DrawView.cpp
 Filter=C
+BaseClass=CView
+VirtualFilter=VWC
 
 
 [CLS:CMainFrame]
