@@ -108,7 +108,10 @@ int CMy01TextView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 	
 	// TODO: Add your specialized creation code here
-    CreateSolidCaret(20, 100);
+    CClientDC dc(this);
+    TEXTMETRIC tm;
+    dc.GetTextMetrics(&tm);
+    CreateSolidCaret(tm.tmAveCharWidth/8, tm.tmHeight);
     ShowCaret();
 	
 	return 0;
