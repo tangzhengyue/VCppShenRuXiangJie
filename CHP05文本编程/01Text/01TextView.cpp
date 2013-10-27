@@ -23,6 +23,7 @@ BEGIN_MESSAGE_MAP(CMy01TextView, CView)
 	ON_WM_CREATE()
 	ON_WM_LBUTTONDOWN()
 	ON_WM_CHAR()
+	ON_WM_TIMER()
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -38,6 +39,7 @@ CMy01TextView::CMy01TextView()
 	// TODO: add construction code here
     m_strOutput.Empty();
     m_ptOutputStart = 0;
+    m_nWidth = 0;
 }
 
 CMy01TextView::~CMy01TextView()
@@ -116,6 +118,8 @@ int CMy01TextView::OnCreate(LPCREATESTRUCT lpCreateStruct)
     m_bitmap.LoadBitmap(IDB_BITMAP1);
     CreateCaret(&m_bitmap);
     ShowCaret();
+
+    SetTimer(1, 100, NULL);
 	
 	return 0;
 }
@@ -173,4 +177,31 @@ void CMy01TextView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     dc.SelectObject(pOldFont);
 	
 	CView::OnChar(nChar, nRepCnt, nFlags);
+}
+
+void CMy01TextView::OnTimer(UINT nIDEvent) 
+{
+	// TODO: Add your message handler code here and/or call default
+    if(1 == nIDEvent)
+    {
+        m_nWidth += 5;
+
+        CClientDC dc(this);
+        TEXTMETRIC tm;
+        dc.GetTextMetrics(&tm);
+
+        CRect rc;
+        rc.left = 0;
+        rc.top = 200;
+        rc.right = m_nWidth;
+        rc.bottom = rc.top + tm.tmHeight;
+
+        dc.SetTextColor(RGB(255, 0, 0));
+
+        CString str;
+        str.LoadString(IDS_STRINGVC);
+        dc.DrawText(str, rc, DT_LEFT);
+    }
+	
+	CView::OnTimer(nIDEvent);
 }

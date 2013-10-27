@@ -37,8 +37,6 @@ public:
 
 // Implementation
 public:
-	CPoint m_ptOutputStart;
-	CString m_strOutput;
 	virtual ~CMy01TextView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
@@ -53,10 +51,14 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
+	afx_msg void OnTimer(UINT nIDEvent);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
 	CBitmap m_bitmap;
+    CPoint m_ptOutputStart;
+	CString m_strOutput;
+    int m_nWidth;
 };
 
 #ifndef _DEBUG  // debug version in 01TextView.cpp
