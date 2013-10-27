@@ -133,9 +133,15 @@ void CMy01DrawView::OnLButtonUp(UINT nFlags, CPoint point)
 //     pDC->LineTo(point);
 //     ReleaseDC(pDC);
 
-    // 利用MFC的CClientDC实现画线功能
+//     // 利用MFC的CClientDC实现画线功能
+//     // 好处：不需要调用GetDC和ReleaseDC
+//     CClientDC dc(GetParent());
+//     dc.MoveTo(m_ptOrigin);
+//     dc.LineTo(point);
+
+    // 利用MFC的CWindowDC实现画线功能
     // 好处：不需要调用GetDC和ReleaseDC
-    CClientDC dc(GetParent());
+    CWindowDC dc(GetParent());
     dc.MoveTo(m_ptOrigin);
     dc.LineTo(point);
 
