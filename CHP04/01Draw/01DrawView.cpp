@@ -114,17 +114,14 @@ void CMy01DrawView::OnLButtonDown(UINT nFlags, CPoint point)
 void CMy01DrawView::OnLButtonUp(UINT nFlags, CPoint point) 
 {
 	// TODO: Add your message handler code here and/or call default
-    // 利用一个红色画刷填充鼠标拖拽过程中形成的一块矩形区域
-    CBrush brush(RGB(255, 0, 0));
-    CClientDC dc(this);
-    CRect rc(m_ptOrigin, point);
-    dc.FillRect(&rc, &brush);
+    // 利用一个位图画刷填充鼠标拖拽过程中形成的一块矩形区域
+    CBitmap bitmap;
+    bitmap.LoadBitmap(IDB_BITMAP1);
 
-    // FillRect不需要把画刷选入设备描述表， Rectangle需要。
-    // FillRect不会给矩形画边线，Rectangle会用DC中的画笔画边线。
-    CBrush *pOldBrush = dc.SelectObject(&brush);
-    dc.Rectangle(&rc);
-    dc.SelectObject(pOldBrush);
+    CBrush brush(&bitmap);
+    CClientDC dc(this);
+
+    dc.FillRect(CRect(m_ptOrigin, point), &brush);
 
 	CView::OnLButtonUp(nFlags, point);
 }
