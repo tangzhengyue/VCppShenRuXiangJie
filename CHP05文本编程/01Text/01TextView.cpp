@@ -57,6 +57,8 @@ void CMy01TextView::OnDraw(CDC* pDC)
 	CMy01TextDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	// TODO: add draw code for native data here
+    CString str("VC++ ÉîÈë±à³Ì");
+    pDC->TextOut(50, 50, str);
 }
 
 /////////////////////////////////////////////////////////////////////////////
