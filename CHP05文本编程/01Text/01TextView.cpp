@@ -63,6 +63,12 @@ void CMy01TextView::OnDraw(CDC* pDC)
     // 输出字符串资源里的字符串
     str.LoadString(IDS_STRINGVC);
     pDC->TextOut(100, 100, str);
+
+    // 创建路径层，将字符串围起来
+    CSize sz = pDC->GetTextExtent(str);
+    pDC->BeginPath();
+    pDC->Rectangle(CRect(100, 100, 100 + sz.cx, 100 + sz.cy));
+    pDC->EndPath();
 }
 
 /////////////////////////////////////////////////////////////////////////////
