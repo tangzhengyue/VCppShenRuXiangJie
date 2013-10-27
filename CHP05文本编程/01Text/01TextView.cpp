@@ -21,6 +21,8 @@ IMPLEMENT_DYNCREATE(CMy01TextView, CView)
 BEGIN_MESSAGE_MAP(CMy01TextView, CView)
 	//{{AFX_MSG_MAP(CMy01TextView)
 	ON_WM_CREATE()
+	ON_WM_LBUTTONDOWN()
+	ON_WM_CHAR()
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -34,7 +36,8 @@ END_MESSAGE_MAP()
 CMy01TextView::CMy01TextView()
 {
 	// TODO: add construction code here
-
+    m_strOutput.Empty();
+    m_ptOutputStart = 0;
 }
 
 CMy01TextView::~CMy01TextView()
@@ -57,30 +60,6 @@ void CMy01TextView::OnDraw(CDC* pDC)
 	CMy01TextDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	// TODO: add draw code for native data here
-    CString str("VC++ 深入编程");
-    pDC->TextOut(50, 50, str);
-
-    // 输出字符串资源里的字符串
-    str.LoadString(IDS_STRINGVC);
-    pDC->TextOut(100, 100, str);
-
-    // 创建路径层，将字符串围起来
-    CSize sz = pDC->GetTextExtent(str);
-    pDC->BeginPath();
-    pDC->Rectangle(CRect(100, 100, 100 + sz.cx, 100 + sz.cy));
-    pDC->EndPath();
-
-    pDC->SelectClipPath(RGN_DIFF);
-    // 接下来在视类中的绘图操作都不会影响到路径层了。
-
-    for(int i = 0; i < 300; i += 10)
-    {
-        pDC->MoveTo(0, i);
-        pDC->LineTo(300, i);
-        
-        pDC->MoveTo(i, 0);
-        pDC->LineTo(i, 300);
-    }
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -139,4 +118,52 @@ int CMy01TextView::OnCreate(LPCREATESTRUCT lpCreateStruct)
     ShowCaret();
 	
 	return 0;
+}
+
+void CMy01TextView::OnLButtonDown(UINT nFlags, CPoint point) 
+{
+	// TODO: Add your message handler code here and/or call default
+    SetCaretPos(point);
+    m_strOutput.Empty();
+    m_ptOutputStart = point;
+	
+	CView::OnLButtonDown(nFlags, point);
+}
+
+void CMy01TextView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
+{
+	// TODO: Add your message handler code here and/or call default
+    CClientDC dc(this);
+    TEXTMETRIC tm;
+    dc.GetTextMetrics(&tm);
+
+    if(0x0d == nChar)
+    // 换行符
+    {
+        m_strOutput.Empty();
+        m_ptOutputStart.y += tm.tmHeight;
+    }
+    else if(0x08 == nChar)
+    // 退格键
+    {
+        if(!m_strOutput.IsEmpty())
+        {
+            COLORREF oldClr = dc.SetTextColor(dc.GetBkColor());
+            dc.TextOut(m_ptOutputStart.x, m_ptOutputStart.y, m_strOutput);
+            m_strOutput = m_strOutput.Left(m_strOutput.GetLength() - 1);
+            dc.SetTextColor(oldClr);
+        }
+    }
+    else
+    {
+        m_strOutput += nChar;
+    }
+
+    dc.TextOut(m_ptOutputStart.x, m_ptOutputStart.y, m_strOutput);
+
+    CSize sz = dc.GetTextExtent(m_strOutput);
+    CPoint pt(m_ptOutputStart.x + sz.cx, m_ptOutputStart.y);
+    SetCaretPos(pt);
+	
+	CView::OnChar(nChar, nRepCnt, nFlags);
 }
