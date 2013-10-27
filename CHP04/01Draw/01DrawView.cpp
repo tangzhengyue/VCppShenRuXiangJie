@@ -114,13 +114,17 @@ void CMy01DrawView::OnLButtonDown(UINT nFlags, CPoint point)
 void CMy01DrawView::OnLButtonUp(UINT nFlags, CPoint point) 
 {
 	// TODO: Add your message handler code here and/or call default
-    // 绘制彩色线条
-    CPen pen(PS_SOLID, 1, RGB(255, 0, 0));
+    // 利用一个红色画刷填充鼠标拖拽过程中形成的一块矩形区域
+    CBrush brush(RGB(255, 0, 0));
     CClientDC dc(this);
-    CPen *pOldPen = dc.SelectObject(&pen);
-    dc.MoveTo(m_ptOrigin);
-    dc.LineTo(point);
-    dc.SelectObject(pOldPen);
+    CRect rc(m_ptOrigin, point);
+    dc.FillRect(&rc, &brush);
+
+    // FillRect不需要把画刷选入设备描述表， Rectangle需要。
+    // FillRect不会给矩形画边线，Rectangle会用DC中的画笔画边线。
+    CBrush *pOldBrush = dc.SelectObject(&brush);
+    dc.Rectangle(&rc);
+    dc.SelectObject(pOldBrush);
 
 	CView::OnLButtonUp(nFlags, point);
 }
