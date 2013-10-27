@@ -50,9 +50,11 @@ protected:
 	//{{AFX_MSG(CMy01DrawView)
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
+	BOOL m_bDraw;
 	CPoint m_ptOrigin;
 };
 

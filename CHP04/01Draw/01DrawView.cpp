@@ -22,6 +22,7 @@ BEGIN_MESSAGE_MAP(CMy01DrawView, CView)
 	//{{AFX_MSG_MAP(CMy01DrawView)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_LBUTTONUP()
+	ON_WM_MOUSEMOVE()
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -36,6 +37,7 @@ CMy01DrawView::CMy01DrawView()
 {
 	// TODO: add construction code here
     m_ptOrigin = 0;
+    m_bDraw = FALSE;
 }
 
 CMy01DrawView::~CMy01DrawView()
@@ -107,6 +109,7 @@ void CMy01DrawView::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: Add your message handler code here and/or call default
     m_ptOrigin = point;
+    m_bDraw = TRUE;
 	
 	CView::OnLButtonDown(nFlags, point);
 }
@@ -114,17 +117,22 @@ void CMy01DrawView::OnLButtonDown(UINT nFlags, CPoint point)
 void CMy01DrawView::OnLButtonUp(UINT nFlags, CPoint point) 
 {
 	// TODO: Add your message handler code here and/or call default
-    // 利用空画刷画不重叠的矩形
-    CClientDC dc(this);
-
-    HBRUSH hBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
-    CBrush *pBrush = CBrush::FromHandle(hBrush);
-
-    CBrush *pOldBrush = dc.SelectObject(pBrush);
-
-    dc.Rectangle(CRect(m_ptOrigin, point));
-
-    dc.SelectObject(pOldBrush);
+    m_bDraw = FALSE;
 
 	CView::OnLButtonUp(nFlags, point);
+}
+
+void CMy01DrawView::OnMouseMove(UINT nFlags, CPoint point) 
+{
+	// TODO: Add your message handler code here and/or call default
+    if(m_bDraw)
+    {
+        CClientDC dc(this);
+        dc.MoveTo(m_ptOrigin);
+        dc.LineTo(point);
+
+        m_ptOrigin = point;
+    }
+	
+	CView::OnMouseMove(nFlags, point);
 }
