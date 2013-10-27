@@ -134,6 +134,11 @@ void CMy01TextView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	// TODO: Add your message handler code here and/or call default
     CClientDC dc(this);
+
+    CFont font;
+    font.CreatePointFont(300, "»ªÎÄÐÐ¿¬", NULL);
+    CFont *pOldFont = dc.SelectObject(&font);
+
     TEXTMETRIC tm;
     dc.GetTextMetrics(&tm);
 
@@ -164,6 +169,8 @@ void CMy01TextView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     CSize sz = dc.GetTextExtent(m_strOutput);
     CPoint pt(m_ptOutputStart.x + sz.cx, m_ptOutputStart.y);
     SetCaretPos(pt);
+
+    dc.SelectObject(pOldFont);
 	
 	CView::OnChar(nChar, nRepCnt, nFlags);
 }
