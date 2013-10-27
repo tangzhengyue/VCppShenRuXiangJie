@@ -114,14 +114,17 @@ void CMy01DrawView::OnLButtonDown(UINT nFlags, CPoint point)
 void CMy01DrawView::OnLButtonUp(UINT nFlags, CPoint point) 
 {
 	// TODO: Add your message handler code here and/or call default
-    // 利用一个位图画刷填充鼠标拖拽过程中形成的一块矩形区域
-    CBitmap bitmap;
-    bitmap.LoadBitmap(IDB_BITMAP1);
-
-    CBrush brush(&bitmap);
+    // 利用空画刷画不重叠的矩形
     CClientDC dc(this);
 
-    dc.FillRect(CRect(m_ptOrigin, point), &brush);
+    HBRUSH hBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
+    CBrush *pBrush = CBrush::FromHandle(hBrush);
+
+    CBrush *pOldBrush = dc.SelectObject(pBrush);
+
+    dc.Rectangle(CRect(m_ptOrigin, point));
+
+    dc.SelectObject(pOldBrush);
 
 	CView::OnLButtonUp(nFlags, point);
 }
