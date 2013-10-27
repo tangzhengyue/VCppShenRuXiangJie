@@ -69,6 +69,18 @@ void CMy01TextView::OnDraw(CDC* pDC)
     pDC->BeginPath();
     pDC->Rectangle(CRect(100, 100, 100 + sz.cx, 100 + sz.cy));
     pDC->EndPath();
+
+    pDC->SelectClipPath(RGN_DIFF);
+    // 接下来在视类中的绘图操作都不会影响到路径层了。
+
+    for(int i = 0; i < 300; i += 10)
+    {
+        pDC->MoveTo(0, i);
+        pDC->LineTo(300, i);
+        
+        pDC->MoveTo(i, 0);
+        pDC->LineTo(i, 300);
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////
