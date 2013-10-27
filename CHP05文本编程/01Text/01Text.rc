@@ -361,6 +361,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_PREVIEW_CLOSE   "关闭打印预览模式\n取消预阅"
+    IDS_STRINGVC            "VC++深入编程第五章  文本编程"
 END
 
 #endif    // Chinese (中国) resources

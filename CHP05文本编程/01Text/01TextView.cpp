@@ -59,6 +59,10 @@ void CMy01TextView::OnDraw(CDC* pDC)
 	// TODO: add draw code for native data here
     CString str("VC++ 深入编程");
     pDC->TextOut(50, 50, str);
+
+    // 输出字符串资源里的字符串
+    str.LoadString(IDS_STRINGVC);
+    pDC->TextOut(100, 100, str);
 }
 
 /////////////////////////////////////////////////////////////////////////////

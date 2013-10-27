@@ -6,6 +6,7 @@
 #define IDR_MAINFRAME                   128
 #define IDR_MY01TETYPE                  129
 #define IDB_BITMAP1                     130
+#define IDS_STRINGVC                    61446
 
 // Next default values for new objects
 // 
