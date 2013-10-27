@@ -51,6 +51,8 @@ protected:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+private:
+	CPoint m_ptOrigin;
 };
 
 #ifndef _DEBUG  // debug version in 01DrawView.cpp

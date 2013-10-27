@@ -34,7 +34,7 @@ END_MESSAGE_MAP()
 CMy01DrawView::CMy01DrawView()
 {
 	// TODO: add construction code here
-
+    m_ptOrigin = 0;
 }
 
 CMy01DrawView::~CMy01DrawView()
@@ -105,7 +105,7 @@ CMy01DrawDoc* CMy01DrawView::GetDocument() // non-debug version is inline
 void CMy01DrawView::OnLButtonDown(UINT nFlags, CPoint point) 
 {
 	// TODO: Add your message handler code here and/or call default
-    MessageBox("View Clicked!");
+    m_ptOrigin = point;
 	
 	CView::OnLButtonDown(nFlags, point);
 }
