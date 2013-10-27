@@ -131,7 +131,7 @@ void CMy01DrawView::OnMouseMove(UINT nFlags, CPoint point)
         dc.MoveTo(m_ptOrigin);
         dc.LineTo(point);
 
-        m_ptOrigin = point;
+        //m_ptOrigin = point;
     }
 	
 	CView::OnMouseMove(nFlags, point);
