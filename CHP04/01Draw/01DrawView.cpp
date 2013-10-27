@@ -127,11 +127,17 @@ void CMy01DrawView::OnLButtonUp(UINT nFlags, CPoint point)
 //     // 释放设备描述表
 //     ::ReleaseDC(m_hWnd, hDC);
 
-    // 利用MFC的CDC类实现画线功能
-    CDC *pDC = GetDC();
-    pDC->MoveTo(m_ptOrigin);
-    pDC->LineTo(point);
-    ReleaseDC(pDC);
+//     // 利用MFC的CDC类实现画线功能
+//     CDC *pDC = GetDC();
+//     pDC->MoveTo(m_ptOrigin);
+//     pDC->LineTo(point);
+//     ReleaseDC(pDC);
+
+    // 利用MFC的CClientDC实现画线功能
+    // 好处：不需要调用GetDC和ReleaseDC
+    CClientDC dc(this);
+    dc.MoveTo(m_ptOrigin);
+    dc.LineTo(point);
 
 	CView::OnLButtonUp(nFlags, point);
 }
