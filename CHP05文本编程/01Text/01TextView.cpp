@@ -20,8 +20,7 @@ IMPLEMENT_DYNCREATE(CMy01TextView, CView)
 
 BEGIN_MESSAGE_MAP(CMy01TextView, CView)
 	//{{AFX_MSG_MAP(CMy01TextView)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
+	ON_WM_CREATE()
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -102,3 +101,15 @@ CMy01TextDoc* CMy01TextView::GetDocument() // non-debug version is inline
 
 /////////////////////////////////////////////////////////////////////////////
 // CMy01TextView message handlers
+
+int CMy01TextView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+{
+	if (CView::OnCreate(lpCreateStruct) == -1)
+		return -1;
+	
+	// TODO: Add your specialized creation code here
+    CreateSolidCaret(20, 100);
+    ShowCaret();
+	
+	return 0;
+}
