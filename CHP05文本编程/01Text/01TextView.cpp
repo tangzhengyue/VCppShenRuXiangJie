@@ -201,6 +201,14 @@ void CMy01TextView::OnTimer(UINT nIDEvent)
         CString str;
         str.LoadString(IDS_STRINGVC);
         dc.DrawText(str, rc, DT_LEFT);
+
+        CSize sz = dc.GetTextExtent(str);
+        if(m_nWidth > sz.cx)
+        {
+            m_nWidth = 0;
+            dc.SetTextColor(RGB(0, 255, 0));
+            dc.TextOut(0, 200, str);
+        }
     }
 	
 	CView::OnTimer(nIDEvent);
