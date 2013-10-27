@@ -114,18 +114,24 @@ void CMy01DrawView::OnLButtonDown(UINT nFlags, CPoint point)
 void CMy01DrawView::OnLButtonUp(UINT nFlags, CPoint point) 
 {
 	// TODO: Add your message handler code here and/or call default
-	// 利用SDK全局函数实现画线功能
-    // 获得设备描述表
-    HDC hDC = ::GetDC(m_hWnd);
+// 	// 利用SDK全局函数实现画线功能
+//     // 获得设备描述表
+//     HDC hDC = ::GetDC(m_hWnd);
+// 
+//     // 移动到线条起点
+//     MoveToEx(hDC, m_ptOrigin.x, m_ptOrigin.y, NULL);
+// 
+//     // 画线到鼠标抬起的位置
+//     LineTo(hDC, point.x, point.y);
+// 
+//     // 释放设备描述表
+//     ::ReleaseDC(m_hWnd, hDC);
 
-    // 移动到线条起点
-    MoveToEx(hDC, m_ptOrigin.x, m_ptOrigin.y, NULL);
-
-    // 画线到鼠标抬起的位置
-    LineTo(hDC, point.x, point.y);
-
-    // 释放设备描述表
-    ::ReleaseDC(m_hWnd, hDC);
+    // 利用MFC的CDC类实现画线功能
+    CDC *pDC = GetDC();
+    pDC->MoveTo(m_ptOrigin);
+    pDC->LineTo(point);
+    ReleaseDC(pDC);
 
 	CView::OnLButtonUp(nFlags, point);
 }
