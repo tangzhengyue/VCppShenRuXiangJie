@@ -108,10 +108,10 @@ int CMy01TextView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 	
 	// TODO: Add your specialized creation code here
-    CClientDC dc(this);
-    TEXTMETRIC tm;
-    dc.GetTextMetrics(&tm);
-    CreateSolidCaret(tm.tmAveCharWidth/8, tm.tmHeight);
+    // 不能定义局部变量，否则光标什么都不显示
+    // CBitmap bitmap;
+    m_bitmap.LoadBitmap(IDB_BITMAP1);
+    CreateCaret(&m_bitmap);
     ShowCaret();
 	
 	return 0;

@@ -51,6 +51,8 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+private:
+	CBitmap m_bitmap;
 };
 
 #ifndef _DEBUG  // debug version in 01TextView.cpp
