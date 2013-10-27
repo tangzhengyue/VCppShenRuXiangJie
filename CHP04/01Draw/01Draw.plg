@@ -6,13 +6,13 @@
 --------------------Configuration: 01Draw - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPF983.tmp" with contents
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPE39F.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/01Draw.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
 "E:\Projects\VCppShenRuXiangJie\CHP04\01Draw\01DrawView.cpp"
 ]
-Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPF983.tmp" 
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPF984.tmp" with contents
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPE39F.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPE3A0.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/01Draw.pdb" /debug /machine:I386 /out:"Debug/01Draw.exe" /pdbtype:sept 
 .\Debug\01Draw.obj
@@ -22,7 +22,7 @@ Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPF984.tmp" with 
 .\Debug\StdAfx.obj
 .\Debug\01Draw.res
 ]
-Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPF984.tmp"
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPE3A0.tmp"
 <h3>Output Window</h3>
 Compiling...
 01DrawView.cpp
