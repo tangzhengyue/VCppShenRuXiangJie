@@ -37,6 +37,7 @@ CMy01DrawView::CMy01DrawView()
 {
 	// TODO: add construction code here
     m_ptOrigin = 0;
+    m_ptRangeOrigin = 0;
     m_bDraw = FALSE;
 }
 
@@ -109,6 +110,7 @@ void CMy01DrawView::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: Add your message handler code here and/or call default
     m_ptOrigin = point;
+    m_ptRangeOrigin = point;
     m_bDraw = TRUE;
 	
 	CView::OnLButtonDown(nFlags, point);
@@ -132,6 +134,10 @@ void CMy01DrawView::OnMouseMove(UINT nFlags, CPoint point)
         dc.LineTo(point);
 
         //m_ptOrigin = point;
+
+        // ªÊ÷∆ Û±ÍπÏº£
+        dc.LineTo(m_ptRangeOrigin);
+        m_ptRangeOrigin = point;
     }
 	
 	CView::OnMouseMove(nFlags, point);

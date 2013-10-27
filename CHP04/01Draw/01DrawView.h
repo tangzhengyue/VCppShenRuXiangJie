@@ -37,6 +37,7 @@ public:
 
 // Implementation
 public:
+	CPoint m_ptRangeOrigin;
 	virtual ~CMy01DrawView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
