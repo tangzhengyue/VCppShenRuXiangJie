@@ -73,6 +73,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	EnableDocking(CBRS_ALIGN_ANY);
 	DockControlBar(&m_wndToolBar);
 
+    GetMenu()->GetSubMenu(0)->CheckMenuItem(0, MF_CHECKED | MF_BYPOSITION);
+
 	return 0;
 }
 
