@@ -159,6 +159,10 @@ SOURCE=.\res\01MenuDoc.ico
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\bitmap1.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Toolbar.bmp
 # End Source File
 # End Group
