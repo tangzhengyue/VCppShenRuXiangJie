@@ -74,6 +74,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	DockControlBar(&m_wndToolBar);
 
     GetMenu()->GetSubMenu(0)->CheckMenuItem(0, MF_CHECKED | MF_BYPOSITION);
+    GetMenu()->GetSubMenu(0)->SetDefaultItem(1, TRUE);
 
 	return 0;
 }
