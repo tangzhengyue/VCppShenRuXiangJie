@@ -74,6 +74,14 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
     SetMenu(NULL);
 
+    CMenu menu;
+    menu.LoadMenu(IDR_MAINFRAME);
+    SetMenu(&menu);
+
+    // 将菜单对象与句柄分离后，对象析构时找不到
+    // 对应的菜单对象，自然没办法销毁菜单了
+    menu.Detach();
+
 	return 0;
 }
 
