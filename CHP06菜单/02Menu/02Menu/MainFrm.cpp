@@ -135,6 +135,16 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	CMFCToolBar::SetBasicCommands(lstBasicCommands);
 
+	CMenu menu;
+
+	menu.CreateMenu();
+	CMenu *pMenu = GetMenu();
+	if(pMenu)
+	{
+		pMenu->AppendMenu(MF_POPUP, (UINT_PTR)menu.m_hMenu, _T("&File"));
+		menu.Detach();
+	}
+
 	return 0;
 }
 
