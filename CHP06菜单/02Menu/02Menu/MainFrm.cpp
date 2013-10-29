@@ -50,6 +50,11 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 	m_wndStatusBar.SetIndicators(indicators, sizeof(indicators)/sizeof(UINT));
 
+	CMenu menu;
+	menu.CreateMenu();
+	GetMenu()->AppendMenu(MF_POPUP, (UINT_PTR)menu.m_hMenu, _T("Test"));
+	menu.Detach();
+
 	return 0;
 }
 
