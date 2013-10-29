@@ -17,6 +17,7 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
+	ON_COMMAND(IDM_HELLO, OnHello)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -54,13 +55,11 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	menu.CreateMenu();
 	//GetMenu()->AppendMenu(MF_POPUP, (UINT_PTR)menu.m_hMenu, _T("Test"));
 	GetMenu()->InsertMenu(2, MF_POPUP | MF_BYPOSITION, (UINT_PTR)menu.m_hMenu, _T("Test"));
-	menu.AppendMenu(MF_STRING, 111, _T("Hello"));
+	menu.AppendMenu(MF_STRING, IDM_HELLO, _T("Hello"));
 	menu.AppendMenu(MF_STRING, 112, _T("Bye"));
 	menu.AppendMenu(MF_STRING, 113, _T("MyBole"));
 
 	menu.Detach();
-
-	GetMenu()->DeleteMenu(2, MF_BYPOSITION);
 
 	return 0;
 }
@@ -91,3 +90,7 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 
 // CMainFrame 消息处理程序
+void CMainFrame::OnHello()
+{
+	MessageBox(_T("On Hello!"));
+}

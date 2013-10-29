@@ -6,6 +6,7 @@
 #define IDP_OLE_INIT_FAILED			100
 #define IDR_MAINFRAME				128
 #define IDR_My02MenuTYPE				130
+#define IDM_HELLO					111
 
 // 新对象的下一组默认值
 //
