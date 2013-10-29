@@ -2,22 +2,22 @@
 
 [General Info]
 Version=1
-LastClass=CAboutDlg
+LastClass=CMainFrame
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "01Menu.h"
 LastPage=0
 
-ClassCount=9
+ClassCount=5
 Class1=CMy01MenuApp
 Class2=CMy01MenuDoc
 Class3=CMy01MenuView
 Class4=CMainFrame
-Class9=CAboutDlg
 
 ResourceCount=2
 Resource1=IDR_MAINFRAME
 Resource2=IDD_ABOUTBOX
+Class5=CAboutDlg
 
 [CLS:CMy01MenuApp]
 Type=0
@@ -43,6 +43,9 @@ Type=0
 HeaderFile=MainFrm.h
 ImplementationFile=MainFrm.cpp
 Filter=T
+BaseClass=CFrameWnd
+VirtualFilter=fWC
+LastObject=ID_EDIT_CUT
 
 
 

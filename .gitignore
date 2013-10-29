@@ -128,6 +128,7 @@ Thumbs.db
 *.ilk
 *.log
 *.plg
+*.opt
 [Bb]in
 [Dd]ebug*/
 *.lib
