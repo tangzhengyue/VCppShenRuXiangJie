@@ -60,6 +60,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	menu.Detach();
 
+	GetMenu()->DeleteMenu(2, MF_BYPOSITION);
+
 	return 0;
 }
 
