@@ -14,10 +14,11 @@ Class2=CMy01MenuDoc
 Class3=CMy01MenuView
 Class4=CMainFrame
 
-ResourceCount=2
-Resource1=IDR_MAINFRAME
-Resource2=IDD_ABOUTBOX
+ResourceCount=3
+Resource1=IDR_MENU1
+Resource2=IDR_MAINFRAME
 Class5=CAboutDlg
+Resource3=IDD_ABOUTBOX
 
 [CLS:CMy01MenuApp]
 Type=0
@@ -36,6 +37,8 @@ Type=0
 HeaderFile=01MenuView.h
 ImplementationFile=01MenuView.cpp
 Filter=C
+BaseClass=CView
+VirtualFilter=VWC
 
 
 [CLS:CMainFrame]
@@ -117,4 +120,11 @@ Command6=ID_EDIT_PASTE
 Command7=ID_FILE_PRINT
 Command8=ID_APP_ABOUT
 CommandCount=8
+
+[MNU:IDR_MENU1]
+Type=1
+Class=?
+Command1=IDM_SHOW
+Command2=IDM_EXIT
+CommandCount=2
 

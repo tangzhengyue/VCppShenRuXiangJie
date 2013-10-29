@@ -20,8 +20,7 @@ IMPLEMENT_DYNCREATE(CMy01MenuView, CView)
 
 BEGIN_MESSAGE_MAP(CMy01MenuView, CView)
 	//{{AFX_MSG_MAP(CMy01MenuView)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
+	ON_WM_RBUTTONDOWN()
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -102,3 +101,16 @@ CMy01MenuDoc* CMy01MenuView::GetDocument() // non-debug version is inline
 
 /////////////////////////////////////////////////////////////////////////////
 // CMy01MenuView message handlers
+
+void CMy01MenuView::OnRButtonDown(UINT nFlags, CPoint point) 
+{
+	// TODO: Add your message handler code here and/or call default
+    CMenu menu;
+    menu.LoadMenu(IDR_MENU1);
+    CMenu *pPopup = menu.GetSubMenu(0);
+
+    ClientToScreen(&point);
+    pPopup->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this);
+	
+	CView::OnRButtonDown(nFlags, point);
+}
