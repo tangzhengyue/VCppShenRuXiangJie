@@ -44,6 +44,13 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
+	afx_msg void OnPhone0();
+	afx_msg void OnPhone1();
+	afx_msg void OnPhone2();
+	afx_msg void OnPhone3();
+	afx_msg void OnPhone4();
+
+
 private:
 	int m_nIndex;
 	CMenu m_menu;

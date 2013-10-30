@@ -16,6 +16,8 @@
 #define new DEBUG_NEW
 #endif
 
+#define IDM_PHONE0	32771
+
 
 // CMy02MenuView
 
@@ -26,6 +28,11 @@ BEGIN_MESSAGE_MAP(CMy02MenuView, CView)
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
+	ON_COMMAND(IDM_PHONE0, &CMy02MenuView::OnPhone0)
+	ON_COMMAND(IDM_PHONE0 + 1, &CMy02MenuView::OnPhone1)
+	ON_COMMAND(IDM_PHONE0 + 2, &CMy02MenuView::OnPhone2)
+	ON_COMMAND(IDM_PHONE0 + 3, &CMy02MenuView::OnPhone3)
+	ON_COMMAND(IDM_PHONE0 + 4, &CMy02MenuView::OnPhone4)
 	ON_WM_CHAR()
 END_MESSAGE_MAP()
 
@@ -123,7 +130,7 @@ void CMy02MenuView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 		if(!m_strInput.IsEmpty())
 		{
-			m_menu.AppendMenu(MF_STRING, 111, m_strInput.Left(m_strInput.Find(' ')));
+			m_menu.AppendMenu(MF_STRING, IDM_PHONE0 + m_asInput.GetSize(), m_strInput.Left(m_strInput.Find(' ')));
 			m_asInput.Add(m_strInput);
 		}
 		m_strInput.Empty();
@@ -141,4 +148,35 @@ void CMy02MenuView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 
 	CView::OnChar(nChar, nRepCnt, nFlags);
+}
+
+
+void CMy02MenuView::OnPhone0()
+{
+	CClientDC dc(this);
+	dc.TextOut(0, 0, m_asInput.GetAt(0));
+}
+
+void CMy02MenuView::OnPhone1()
+{
+	CClientDC dc(this);
+	dc.TextOut(0, 0, m_asInput.GetAt(1));
+}
+
+void CMy02MenuView::OnPhone2()
+{
+	CClientDC dc(this);
+	dc.TextOut(0, 0, m_asInput.GetAt(2));
+}
+
+void CMy02MenuView::OnPhone3()
+{
+	CClientDC dc(this);
+	dc.TextOut(0, 0, m_asInput.GetAt(3));
+}
+
+void CMy02MenuView::OnPhone4()
+{
+	CClientDC dc(this);
+	dc.TextOut(0, 0, m_asInput.GetAt(4));
 }
