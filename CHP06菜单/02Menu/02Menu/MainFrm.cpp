@@ -6,10 +6,13 @@
 #include "02Menu.h"
 
 #include "MainFrm.h"
+#include "02MenuDoc.h"
+#include "02MenuView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
+
 
 // CMainFrame
 
@@ -83,4 +86,19 @@ void CMainFrame::Dump(CDumpContext& dc) const
 void CMainFrame::OnHello()
 {
 	MessageBox(_T("On Hello!"));
+}
+
+BOOL CMainFrame::OnCommand(WPARAM wParam, LPARAM lParam)
+{
+	// TODO: 
+	int nID = LOWORD(wParam);
+	CMy02MenuView *pView = (CMy02MenuView *)GetActiveView();
+	if(nID < IDM_PHONE0 + pView->m_asInput.GetSize() && nID >= IDM_PHONE0)
+	{
+		CClientDC dc(pView);
+		dc.TextOut(0, 0, pView->m_asInput.GetAt(nID - IDM_PHONE0));
+		return TRUE;
+	}
+
+	return CFrameWnd::OnCommand(wParam, lParam);
 }

@@ -38,6 +38,7 @@ protected:
 	afx_msg void OnHello();
 	DECLARE_MESSAGE_MAP()
 
+	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
 };
 
 

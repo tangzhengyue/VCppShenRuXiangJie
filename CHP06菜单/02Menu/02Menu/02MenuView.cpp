@@ -16,7 +16,6 @@
 #define new DEBUG_NEW
 #endif
 
-#define IDM_PHONE0	32771
 
 
 // CMy02MenuView
