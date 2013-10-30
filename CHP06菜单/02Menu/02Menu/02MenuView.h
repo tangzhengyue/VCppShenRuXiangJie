@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "afxwin.h"
 
 
 class CMy02MenuView : public CView
@@ -40,6 +41,12 @@ protected:
 // 生成的消息映射函数
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
+private:
+	int m_nIndex;
+	CMenu m_menu;
+	CString m_strInput;
 };
 
 #ifndef _DEBUG  // 02MenuView.cpp 中的调试版本

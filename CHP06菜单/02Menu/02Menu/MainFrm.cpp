@@ -51,16 +51,6 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 	m_wndStatusBar.SetIndicators(indicators, sizeof(indicators)/sizeof(UINT));
 
-	CMenu menu;
-	menu.CreateMenu();
-	//GetMenu()->AppendMenu(MF_POPUP, (UINT_PTR)menu.m_hMenu, _T("Test"));
-	GetMenu()->InsertMenu(2, MF_POPUP | MF_BYPOSITION, (UINT_PTR)menu.m_hMenu, _T("Test"));
-	menu.AppendMenu(MF_STRING, IDM_HELLO, _T("Hello"));
-	menu.AppendMenu(MF_STRING, 112, _T("Bye"));
-	menu.AppendMenu(MF_STRING, 113, _T("MyBole"));
-
-	menu.Detach();
-
 	return 0;
 }
 

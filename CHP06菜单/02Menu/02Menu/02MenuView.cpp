@@ -26,11 +26,14 @@ BEGIN_MESSAGE_MAP(CMy02MenuView, CView)
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
+	ON_WM_CHAR()
 END_MESSAGE_MAP()
 
 // CMy02MenuView 构造/析构
 
 CMy02MenuView::CMy02MenuView()
+	: m_nIndex(-1)
+	, m_strInput(_T(""))
 {
 	// TODO: 在此处添加构造代码
 
@@ -102,3 +105,24 @@ CMy02MenuDoc* CMy02MenuView::GetDocument() const // 非调试版本是内联的
 
 
 // CMy02MenuView 消息处理程序
+
+
+void CMy02MenuView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	// TODO: 
+	if(0x0d == nChar)  // 回车
+	{
+		if(++m_nIndex == 0)
+		{
+			m_menu.CreatePopupMenu();
+			GetParent()->GetMenu()->AppendMenu(MF_POPUP, (UINT_PTR)m_menu.m_hMenu, _T("PhoneBook"));
+
+			// 重画，否则显示不出来
+			GetParent()->DrawMenuBar();
+
+			return;
+		}
+	}
+
+	CView::OnChar(nChar, nRepCnt, nFlags);
+}
