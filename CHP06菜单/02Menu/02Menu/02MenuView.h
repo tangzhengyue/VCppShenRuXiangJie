@@ -4,6 +4,7 @@
 
 #pragma once
 #include "afxwin.h"
+#include "afxcoll.h"
 
 
 class CMy02MenuView : public CView
@@ -47,6 +48,8 @@ private:
 	int m_nIndex;
 	CMenu m_menu;
 	CString m_strInput;
+public:
+	CStringArray m_asInput;
 };
 
 #ifndef _DEBUG  // 02MenuView.cpp 中的调试版本

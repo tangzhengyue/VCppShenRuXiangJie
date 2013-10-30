@@ -116,11 +116,16 @@ void CMy02MenuView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		{
 			m_menu.CreatePopupMenu();
 			GetParent()->GetMenu()->AppendMenu(MF_POPUP, (UINT_PTR)m_menu.m_hMenu, _T("PhoneBook"));
-
+		
 			// 重画，否则显示不出来
 			GetParent()->DrawMenuBar();
 		}
 
+		if(!m_strInput.IsEmpty())
+		{
+			m_menu.AppendMenu(MF_STRING, 111, m_strInput.Left(m_strInput.Find(' ')));
+			m_asInput.Add(m_strInput);
+		}
 		m_strInput.Empty();
 		Invalidate(TRUE);  // 重绘，擦除
 	}
