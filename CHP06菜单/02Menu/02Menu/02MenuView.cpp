@@ -119,9 +119,20 @@ void CMy02MenuView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 			// 重画，否则显示不出来
 			GetParent()->DrawMenuBar();
-
-			return;
 		}
+
+		m_strInput.Empty();
+		Invalidate(TRUE);  // 重绘，擦除
+	}
+
+	else
+	{
+		CClientDC dc(this);
+
+		TCHAR ch = nChar;
+		m_strInput += ch;
+
+		dc.TextOut(0, 0, m_strInput);
 	}
 
 	CView::OnChar(nChar, nRepCnt, nFlags);
