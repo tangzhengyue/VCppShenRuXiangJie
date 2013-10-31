@@ -106,6 +106,7 @@ CMyboleDoc* CMyboleView::GetDocument() // non-debug version is inline
 void CMyboleView::OnDialog() 
 {
 	// TODO: Add your command handler code here
-	CTestDlg dlg;
-    dlg.DoModal();
+	CTestDlg *pDlg = new CTestDlg;
+    pDlg->Create(IDD_DIALOG1, this);
+    pDlg->ShowWindow(SW_SHOW);
 }

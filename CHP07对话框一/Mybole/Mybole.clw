@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CMyboleView
+LastClass=CTestDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "Mybole.h"
@@ -15,8 +15,8 @@ Class3=CMyboleView
 Class4=CMainFrame
 
 ResourceCount=3
-Resource1=IDR_MAINFRAME
-Resource2=IDD_ABOUTBOX
+Resource1=IDD_ABOUTBOX
+Resource2=IDR_MAINFRAME
 Class5=CAboutDlg
 Class6=CTestDlg
 Resource3=IDD_DIALOG1
@@ -40,6 +40,7 @@ ImplementationFile=MyboleView.cpp
 Filter=C
 BaseClass=CView
 VirtualFilter=VWC
+LastObject=CMyboleView
 
 
 [CLS:CMainFrame]
@@ -136,4 +137,5 @@ ImplementationFile=TestDlg.cpp
 BaseClass=CDialog
 Filter=D
 LastObject=CTestDlg
+VirtualFilter=dWC
 
