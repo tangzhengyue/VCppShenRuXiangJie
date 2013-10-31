@@ -137,6 +137,7 @@ BEGIN
     BEGIN
         MENUITEM "关于 Mybole(&A)...",          ID_APP_ABOUT
     END
+    MENUITEM "对话框",                      IDM_DIALOG
 END
 
 

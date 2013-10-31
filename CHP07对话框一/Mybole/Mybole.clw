@@ -2,23 +2,24 @@
 
 [General Info]
 Version=1
-LastClass=CAboutDlg
+LastClass=CMyboleView
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "Mybole.h"
 LastPage=0
 
-ClassCount=5
+ClassCount=6
 Class1=CMyboleApp
 Class2=CMyboleDoc
 Class3=CMyboleView
 Class4=CMainFrame
 
-ResourceCount=8
-Resource1=IDD_ABOUTBOX
-Resource2=IDR_MAINFRAME
+ResourceCount=3
+Resource1=IDR_MAINFRAME
+Resource2=IDD_ABOUTBOX
 Class5=CAboutDlg
-Resource8=IDD_DIALOG1
+Class6=CTestDlg
+Resource3=IDD_DIALOG1
 
 [CLS:CMyboleApp]
 Type=0
@@ -37,6 +38,8 @@ Type=0
 HeaderFile=MyboleView.h
 ImplementationFile=MyboleView.cpp
 Filter=C
+BaseClass=CView
+VirtualFilter=VWC
 
 
 [CLS:CMainFrame]
@@ -44,6 +47,7 @@ Type=0
 HeaderFile=MainFrm.h
 ImplementationFile=MainFrm.cpp
 Filter=T
+LastObject=IDM_DIALOG
 
 
 
@@ -83,7 +87,8 @@ Command13=ID_EDIT_PASTE
 Command14=ID_VIEW_TOOLBAR
 Command15=ID_VIEW_STATUS_BAR
 Command16=ID_APP_ABOUT
-CommandCount=16
+Command17=IDM_DIALOG
+CommandCount=17
 
 [ACL:IDR_MAINFRAME]
 Type=1
@@ -106,7 +111,7 @@ CommandCount=14
 
 [DLG:IDD_DIALOG1]
 Type=1
-Class=?
+Class=CTestDlg
 ControlCount=2
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
@@ -123,4 +128,12 @@ Command6=ID_EDIT_PASTE
 Command7=ID_FILE_PRINT
 Command8=ID_APP_ABOUT
 CommandCount=8
+
+[CLS:CTestDlg]
+Type=0
+HeaderFile=TestDlg.h
+ImplementationFile=TestDlg.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=CTestDlg
 

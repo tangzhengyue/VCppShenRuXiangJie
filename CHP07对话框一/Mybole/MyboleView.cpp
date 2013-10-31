@@ -6,6 +6,7 @@
 
 #include "MyboleDoc.h"
 #include "MyboleView.h"
+#include "TestDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -20,8 +21,7 @@ IMPLEMENT_DYNCREATE(CMyboleView, CView)
 
 BEGIN_MESSAGE_MAP(CMyboleView, CView)
 	//{{AFX_MSG_MAP(CMyboleView)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
+	ON_COMMAND(IDM_DIALOG, OnDialog)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -102,3 +102,10 @@ CMyboleDoc* CMyboleView::GetDocument() // non-debug version is inline
 
 /////////////////////////////////////////////////////////////////////////////
 // CMyboleView message handlers
+
+void CMyboleView::OnDialog() 
+{
+	// TODO: Add your command handler code here
+	CTestDlg dlg;
+    dlg.DoModal();
+}
