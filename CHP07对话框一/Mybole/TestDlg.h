@@ -38,6 +38,7 @@ protected:
 	//{{AFX_MSG(CTestDlg)
 	virtual void OnOK();
 	afx_msg void OnBtnAdd();
+	afx_msg void OnStcNum1();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

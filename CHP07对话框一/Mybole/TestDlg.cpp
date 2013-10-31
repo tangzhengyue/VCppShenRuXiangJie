@@ -36,6 +36,7 @@ void CTestDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CTestDlg, CDialog)
 	//{{AFX_MSG_MAP(CTestDlg)
 	ON_BN_CLICKED(IDC_BTN_ADD, OnBtnAdd)
+	ON_BN_CLICKED(IDC_STC_NUM1, OnStcNum1)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -69,5 +70,19 @@ void CTestDlg::OnBtnAdd()
     else
     {
         m_btn.DestroyWindow();
+    }
+}
+
+void CTestDlg::OnStcNum1() 
+{
+	// TODO: Add your control notification handler code here
+    CString str;
+	if(GetDlgItem(IDC_STC_NUM1)->GetWindowText(str), str == "Number1:")
+    {
+        GetDlgItem(IDC_STC_NUM1)->SetWindowText("ÊýÖµ1:");
+    }
+    else
+    {
+        GetDlgItem(IDC_STC_NUM1)->SetWindowText("Number1:");
     }
 }

@@ -113,10 +113,16 @@ CommandCount=14
 [DLG:IDD_DIALOG1]
 Type=1
 Class=CTestDlg
-ControlCount=3
+ControlCount=9
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
 Control3=IDC_BTN_ADD,button,1342242816
+Control4=IDC_STC_NUM1,static,1342308608
+Control5=IDC_STC_NUM2,static,1342308352
+Control6=IDC_STC_NUM3,static,1342308352
+Control7=IDC_EDIT1,edit,1350631552
+Control8=IDC_EDIT2,edit,1350631552
+Control9=IDC_EDIT3,edit,1350631552
 
 [TB:IDR_MAINFRAME]
 Type=1
@@ -137,6 +143,6 @@ HeaderFile=TestDlg.h
 ImplementationFile=TestDlg.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_BTN_ADD
+LastObject=IDC_STC_NUM1
 VirtualFilter=dWC
 
