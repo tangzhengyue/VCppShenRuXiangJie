@@ -63,26 +63,25 @@ void CTestDlg::OnOK()
 void CTestDlg::OnBtnAdd() 
 {
 	// TODO: Add your control notification handler code here
-    if(!m_btn.m_hWnd)
-    {
-        m_btn.Create("Î¢ÐÅ", BS_DEFPUSHBUTTON | WS_VISIBLE | WS_CHILD, CRect(0, 0, 100, 100), this, 123);
-    }
-    else
-    {
-        m_btn.DestroyWindow();
-    }
+    int num1, num2, num3;
+    CString str1, str2;
+
+    GetDlgItem(IDC_EDIT1)->GetWindowText(str1);
+    GetDlgItem(IDC_EDIT2)->GetWindowText(str2);
+
+    num1 = _ttoi(str1);
+    num2 = _ttoi(str2);
+
+    num3 = num1 + num2;
+
+    CString str3;
+    str3.Format("%d", num3);
+
+    GetDlgItem(IDC_EDIT3)->SetWindowText(str3);
 }
 
 void CTestDlg::OnStcNum1() 
 {
 	// TODO: Add your control notification handler code here
-    CString str;
-	if(GetDlgItem(IDC_STC_NUM1)->GetWindowText(str), str == "Number1:")
-    {
-        GetDlgItem(IDC_STC_NUM1)->SetWindowText("ÊýÖµ1:");
-    }
-    else
-    {
-        GetDlgItem(IDC_STC_NUM1)->SetWindowText("Number1:");
-    }
+    
 }
