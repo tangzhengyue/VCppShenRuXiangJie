@@ -15,8 +15,8 @@ Class3=CMyboleView
 Class4=CMainFrame
 
 ResourceCount=3
-Resource1=IDD_ABOUTBOX
-Resource2=IDR_MAINFRAME
+Resource1=IDR_MAINFRAME
+Resource2=IDD_ABOUTBOX
 Class5=CAboutDlg
 Class6=CTestDlg
 Resource3=IDD_DIALOG1
@@ -113,9 +113,10 @@ CommandCount=14
 [DLG:IDD_DIALOG1]
 Type=1
 Class=CTestDlg
-ControlCount=2
+ControlCount=3
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
+Control3=IDC_BTN_ADD,button,1342242816
 
 [TB:IDR_MAINFRAME]
 Type=1
@@ -136,6 +137,6 @@ HeaderFile=TestDlg.h
 ImplementationFile=TestDlg.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=CTestDlg
+LastObject=IDC_BTN_ADD
 VirtualFilter=dWC
 
